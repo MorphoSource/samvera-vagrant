@@ -24,3 +24,6 @@ apt-get -y install git vim
 
 # Wget, curl and unzip
 apt-get -y install wget curl unzip
+
+# Disable daily apt unattended updates.
+echo 'APT::Periodic::Enable "0";' >> /etc/apt/apt.conf.d/10periodic
