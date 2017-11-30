@@ -5,10 +5,20 @@ if [ ! -e $1/rdr ]; then
   cd $1
   git clone https://github.com/duke-libraries/rdr.git
   cd rdr
+  
+  source /home/ubuntu/.rvm/scripts/rvm
+  rvm gemset use rdr --create
+  
+  echo
+  echo 'installing bundler'
+  echo '------------------'
+  gem install bundler --no-ri --no-rdoc
+  echo
+  
   bundle install
   bin/rails db:setup
   bin/rails hyrax:workflow:load
-  cp config/role_map.yml.sample config/role_map.yml
+  #cp config/role_map.yml.sample config/role_map.yml
   bin/rails hydra:server &
   hydra_pid=$!
   echo "Waiting for TCP 127.0.0.1:3000 / 127.0.0.1:8984 from hydra:server PID ${hydra_pid}..."

@@ -20,21 +20,16 @@ echo
 #
 # check for rails 5.1.4
 #
-echo
-echo 'check for Rails 5.1.4'
-echo '---------------------'
-rvm ruby-2.4.2 2>&1
-rails_version="$(rails -v 2>&1)"
-if echo $rails_version 2>&1 | grep -q 'Rails 5.1.4'; then
-    echo 'rails Rails 5.1.4 already installed'
-else
-    echo 'installing Rails 5.1.4'
-    gem install rails -v 5.1.4 --no-ri --no-rdoc
-fi
-echo
+#echo
+#echo 'check for Rails 5.1.4'
+#echo '---------------------'
+#rvm ruby-2.4.2 2>&1
+#rails_version="$(rails -v 2>&1)"
+#if echo $rails_version 2>&1 | grep -q 'Rails 5.1.4'; then
+#    echo 'rails Rails 5.1.4 already installed'
+#else
+#    echo 'installing Rails 5.1.4'
+#    gem install rails -v 5.1.4 --no-ri --no-rdoc
+#fi
+#echo
 
-echo
-echo 'installing bundler'
-echo '------------------'
-gem install bundler --no-ri --no-rdoc
-echo
